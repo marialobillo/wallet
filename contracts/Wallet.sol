@@ -20,7 +20,7 @@ contract Wallet{
         quorum = _quorum;
     }
     
-    function getApproves() external view returns(address[] memory){
+    function getApprovers() external view returns(address[] memory){
         return approvers;
     }
     
