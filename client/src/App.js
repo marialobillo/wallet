@@ -27,7 +27,6 @@ function App() {
       setApprovers(approvers);
       setQuorum(quorum);
       setTransfers(transfers);
-      console.log('Transfers', transfers);
     };
     init();
   }, []);

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function NewTransfer({createTransfer}) {
   const [transfer, setTransfer] = useState(undefined);
+
+  // useEffect(() => {
+  // }, [transfer]);
 
   const submit = e => {
     e.preventDefault();
