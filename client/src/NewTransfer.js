@@ -1,42 +1,38 @@
 import React, { useState } from 'react';
 
-const NewTransfer = ({createTransfer}) => {
+function NewTransfer({createTransfer}) {
+  const [transfer, setTransfer] = useState(undefined);
 
-    const [transfer, setTransfer] = useState(undefined);
+  const submit = e => {
+    e.preventDefault();
+    createTransfer(transfer);
+  }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        createTransfer(transfer);
+  const updateTransfer = (e, field) => {
+    const value = e.target.value;
+    setTransfer({...transfer, [field]: value});
+  }
 
-    }
-
-    const updateTransfer = (e, field) => {
-        const value = e.target.value;
-        setTransfer({
-            ...transfer, 
-            [field]: value
-        })
-    }
-    return (
-        <div>
-            <h2>Create Transfer</h2>
-            <form onSubmit={(event) => handleSubmit(event)}>
-                <label htmlFor="amount">Amount</label>
-                <input 
-                    id="amount"
-                    type="text"
-                    onChange={e => updateTransfer(e, 'amount' )}
-                />
-                <label htmlFor="to">To</label>
-                <input 
-                    id="to"
-                    type="text"
-                    onChange={e => updateTransfer(e, 'to' )}
-                />
-                <button type="submit">Submit</button>
-            </form>
+  return (
+    <div>
+      <h2>Create transfer</h2>
+      <form onSubmit={e => submit(e)}>
+        <label htmlFor="amount">Amount</label>
+        <input 
+          id="amount"
+          type="text" 
+          onChange={e => updateTransfer(e, 'amount')} 
+        />
+        <label htmlFor="to">To</label>
+        <input 
+          id="to"
+          type="text" 
+          onChange={e => updateTransfer(e, 'to')} 
+        />
+        <button>Submit</button>
+      </form>
     </div>
-    );
+  );
 }
 
 export default NewTransfer;
