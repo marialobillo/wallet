@@ -24,7 +24,7 @@ const TransferList = ({transfers, approveTransfer}) => {
                             <td>{transfer.to}</td>
                             <td>
                                 {transfer.approvals}
-                                <button className="btn btn-info btn-sm" onClick={() => approveTransfer(transfer.id)}>
+                                <button className="btn btn-dark btn-sm" onClick={() => approveTransfer(transfer.id)}>
                                     Approve
                                 </button>
                             </td>

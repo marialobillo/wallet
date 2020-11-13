@@ -35,7 +35,7 @@ function NewTransfer({createTransfer}) {
             onChange={e => updateTransfer(e, 'to')} 
           />
         </div>
-        <button className="btn btn-secondary">Submit</button>
+        <button className="btn btn-dark">Submit</button>
       </form>
     </div>
   );
