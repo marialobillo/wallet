@@ -3,9 +3,9 @@ import React from 'react';
 const TransferList = ({transfers, approveTransfer}) => {
 
     return (
-        <div>
+        <div className="section">
             <h2>Transfers</h2>
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -18,13 +18,13 @@ const TransferList = ({transfers, approveTransfer}) => {
 
                 <tbody>
                    {transfers.map(transfer => (
-                       <tr key={transfers.id}>
+                       <tr key={transfer.id}>
                             <td>{transfer.id}</td>
                             <td>{transfer.amount}</td>
                             <td>{transfer.to}</td>
                             <td>
                                 {transfer.approvals}
-                                <button onClick={() => approveTransfer(transfer.id)}>
+                                <button className="btn btn-info btn-sm" onClick={() => approveTransfer(transfer.id)}>
                                     Approve
                                 </button>
                             </td>

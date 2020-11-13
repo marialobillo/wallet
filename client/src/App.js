@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getWeb3, getWallet } from './utils.js'; 
 import Header from './Header.js';
 import NewTransfer from './NewTransfer.js';
-import TransferList from './TransferList';
+import TransferList from './components/TransferList';
+import './css/index.css';
 
 function App() {
   const [web3, setWeb3] = useState(undefined);
@@ -14,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const init = async () => {
-      const web3 = getWeb3();
+      const web3 = await getWeb3();
       const accounts = await web3.eth.getAccounts();
       const wallet = await getWallet(web3);
       const approvers = await wallet.methods.getApprovers().call();
@@ -54,8 +55,10 @@ function App() {
   }
 
   return (
-    <div>
-      Multisig Dapp 
+    <div className="container bg-light">
+      <div className="jumbotron">
+        <h1 className="text-center">Multisig Dapp</h1> 
+      </div>
       <Header approvers={approvers} quorum={quorum} />
       <NewTransfer createTransfer={createTransfer} />
       <TransferList transfers={transfers} approveTransfer={approveTransfer}/>
@@ -64,3 +67,4 @@ function App() {
 }
 
 export default App;
+

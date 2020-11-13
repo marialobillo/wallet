@@ -14,7 +14,7 @@ function NewTransfer({createTransfer}) {
   }
 
   return (
-    <div>
+    <div className="bg-white section">
       <h2>Create transfer</h2>
       <form onSubmit={e => submit(e)}>
         <label htmlFor="amount">Amount</label>
