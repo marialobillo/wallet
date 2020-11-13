@@ -15,21 +15,27 @@ function NewTransfer({createTransfer}) {
 
   return (
     <div className="bg-white section">
-      <h2>Create transfer</h2>
-      <form onSubmit={e => submit(e)}>
-        <label htmlFor="amount">Amount</label>
-        <input 
-          id="amount"
-          type="text" 
-          onChange={e => updateTransfer(e, 'amount')} 
-        />
-        <label htmlFor="to">To</label>
-        <input 
-          id="to"
-          type="text" 
-          onChange={e => updateTransfer(e, 'to')} 
-        />
-        <button>Submit</button>
+      <h2 className="text-center">Create transfer</h2>
+      <form className="form col-md-7" onSubmit={e => submit(e)}>
+        <div  className="form-group">
+          <label htmlFor="amount">Amount</label>
+          <input 
+            id="amount"
+            type="text"
+            className="form-control" 
+            onChange={e => updateTransfer(e, 'amount')} 
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="to">To</label>
+          <input 
+            id="to"
+            type="text" 
+            className="form-control" 
+            onChange={e => updateTransfer(e, 'to')} 
+          />
+        </div>
+        <button className="btn btn-secondary">Submit</button>
       </form>
     </div>
   );
